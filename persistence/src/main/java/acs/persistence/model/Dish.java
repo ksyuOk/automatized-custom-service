@@ -17,9 +17,6 @@ public class Dish extends BaseEntity {
     @Column(name = "dish_id", nullable = false)
     Integer id;
 
-    @Column(name = "categoryId", nullable = false)
-    Integer categoryId;
-
     @Column(name = "dish_name", nullable = false)
     String dishName;
 

@@ -23,7 +23,7 @@ public class CategoryMenu extends BaseEntity {
     @Column(name = "image", nullable = false)
     byte[] image;
 
-    @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.REFRESH})
+    @OneToMany(cascade = {CascadeType.PERSIST, CascadeType.REFRESH})
     private Set<Dish> dishs;
 
     public Integer getId() {

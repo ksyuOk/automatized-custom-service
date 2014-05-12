@@ -9,8 +9,17 @@
 
         <provider>org.hibernate.ejb.HibernatePersistence</provider>
 
+
+
+
+        <class>acs.persistence.model.Order</class>
+        <class>acs.persistence.model.OrderItem</class>
+        <class>acs.persistence.model.CategoryMenu</class>
+        <class>acs.persistence.model.Client</class>
+        <class>acs.persistence.model.Dish</class>
+
         <properties>
-            <property name="hibernate.dialect" value="org.hibernate.dialect.HSQLDialect" />
+            <!--<property name="hibernate.dialect" value="org.hibernate.dialect.HSQLDialect" />-->
             <property name="hibernate.show_sql" value="true" />
             <property name="hibernate.hbm2ddl.auto" value="validate" />
             <!--<property name="hibernate.ejb.naming_strategy" value="org.hibernate.cfg.ImprovedNamingStrategy"/>-->
@@ -19,12 +28,6 @@
             <!--<property name="jadira.usertype.databaseZone" value="jvm" />-->
         </properties>
 
-
-        <class>acs.persistence.model.Order</class>
-        <class>acs.persistence.model.OrderItem</class>
-        <class>acs.persistence.model.CategoryMenu</class>
-        <class>acs.persistence.model.Client</class>
-        <class>acs.persistence.model.Dish</class>
     </persistence-unit>
 
 </persistence>

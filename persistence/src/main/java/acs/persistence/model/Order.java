@@ -18,9 +18,6 @@ public class Order extends BaseEntity {
     @Column(name = "order_id", nullable = false)
     Integer id;
 
-    @Column(name = "client_id", nullable = false)
-    Integer clientId;
-
     @Column(name = "table_number", nullable = false)
     Integer tableNumber;
 
@@ -119,14 +116,6 @@ public class Order extends BaseEntity {
 
     public void setTableNumber(Integer tableNumber) {
         this.tableNumber = tableNumber;
-    }
-
-    public Integer getClientId() {
-        return clientId;
-    }
-
-    public void setClientId(Integer clientId) {
-        this.clientId = clientId;
     }
 
     public Integer getId() {
