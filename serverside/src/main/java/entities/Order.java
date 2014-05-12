@@ -1,9 +1,6 @@
-package src.main.entities;
+package entities;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
 
@@ -40,17 +37,27 @@ public class Order implements Serializable {
     Integer orderRate;
 
     @Column(name = "responce_description", nullable = true)
-    String responce_description;
+    String responceDescription;
 
     @Column(name = "status", nullable = false)
     String status;
 
+    @ManyToOne
+    @JoinColumn(name = "client_id")
+    public Client getClient(){
+
+    }
+
+    @OneToMany
+    @JoinColumn(name = "")
+
+
     public String getResponceDescription() {
-        return responce_description;
+        return responceDescription;
     }
 
     public void setResponceDescription(String responce_description) {
-        this.responce_description = responce_description;
+        this.responceDescription = responce_description;
     }
 
     public String getStatus() {
@@ -115,5 +122,24 @@ public class Order implements Serializable {
 
     public void setOrderId(Integer orderId) {
         this.orderId = orderId;
+    }
+
+    @Override
+    public int hashCode(){
+        int hash = 0;
+        hash += (this.orderId != null ? this.orderId.hashCode() : 0);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object object){
+        if (!(object instanceof Order)){
+            return false;
+        }
+        Order other = (Order) object;
+        if(this.orderId != other.orderId && (this.orderId == null || !this.orderId.equals(other.orderId))){
+            return false;
+        }
+        return true;
     }
 }
