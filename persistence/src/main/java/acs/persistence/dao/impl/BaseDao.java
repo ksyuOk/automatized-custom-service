@@ -4,6 +4,7 @@ import acs.persistence.dao.IBaseDao;
 import acs.persistence.model.BaseEntity;
 
 import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 import javax.persistence.PersistenceUnit;
 import java.io.Serializable;
 import java.util.List;
@@ -15,7 +16,7 @@ public class BaseDao<T extends BaseEntity> implements IBaseDao<T> {
 
     private Class<T> entity;
 
-    @PersistenceUnit
+    @PersistenceContext
     private EntityManager em;
 
     public BaseDao(Class<T> entity) {
