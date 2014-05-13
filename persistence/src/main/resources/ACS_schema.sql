@@ -1,17 +1,14 @@
-SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
-SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
-SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
 
-DROP SCHEMA IF EXISTS `SystemServiceClients` ;
-CREATE SCHEMA IF NOT EXISTS `SystemServiceClients` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci ;
-USE `SystemServiceClients` ;
+-- DROP SCHEMA IF EXISTS `SystemServiceClients` ;
+-- CREATE SCHEMA IF NOT EXISTS `SystemServiceClients` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci ;
+-- USE `SystemServiceClients` ;
 
 -- -----------------------------------------------------
--- Table `SystemServiceClients`.`category_menu`
+-- Table `category_menu`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `SystemServiceClients`.`category_menu` ;
+DROP TABLE IF EXISTS `category_menu` ;
 
-CREATE TABLE IF NOT EXISTS `SystemServiceClients`.`category_menu` (
+CREATE TABLE `category_menu` (
   `category_id` INT(11) NOT NULL,
   `category_name` VARCHAR(50) NOT NULL,
   `image` BLOB NOT NULL,
@@ -21,11 +18,11 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `SystemServiceClients`.`dish`
+-- Table `dish`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `SystemServiceClients`.`dish` ;
+DROP TABLE IF EXISTS `dish` ;
 
-CREATE TABLE IF NOT EXISTS `SystemServiceClients`.`dish` (
+CREATE TABLE IF NOT EXISTS `dish` (
   `dish_id` INT(11) NOT NULL,
   `category_id` INT(11) NOT NULL,
   `dish_name` VARCHAR(50) NOT NULL,
@@ -39,18 +36,18 @@ CREATE TABLE IF NOT EXISTS `SystemServiceClients`.`dish` (
   PRIMARY KEY (`dish_id`),
   CONSTRAINT `fk_category_id`
     FOREIGN KEY (`category_id`)
-    REFERENCES `SystemServiceClients`.`category_menu` (`category_id`)
+    REFERENCES `category_menu` (`category_id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `SystemServiceClients`.`client`
+-- Table `client`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `SystemServiceClients`.`client` ;
+DROP TABLE IF EXISTS `client` ;
 
-CREATE TABLE IF NOT EXISTS `SystemServiceClients`.`client` (
+CREATE TABLE IF NOT EXISTS `client` (
   `client_id` INT(11) NOT NULL,
   `name_client` VARCHAR(80) NOT NULL,
   `email` VARCHAR(255) NOT NULL,
@@ -60,11 +57,11 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `SystemServiceClients`.`order`
+-- Table `order`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `SystemServiceClients`.`order` ;
+DROP TABLE IF EXISTS `orders` ;
 
-CREATE TABLE IF NOT EXISTS `SystemServiceClients`.`order` (
+CREATE TABLE IF NOT EXISTS `orders` (
   `order_id` INT(11) NOT NULL,
   `client_id` INT(11) NOT NULL,
   `table_number` INT NOT NULL,
@@ -78,18 +75,18 @@ CREATE TABLE IF NOT EXISTS `SystemServiceClients`.`order` (
   INDEX `fk_client_id_idx` (`client_id` ASC),
   CONSTRAINT `fk_client_id`
     FOREIGN KEY (`client_id`)
-    REFERENCES `SystemServiceClients`.`client` (`client_id`)
+    REFERENCES `client` (`client_id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `SystemServiceClients`.`order_item`
+-- Table `order_item`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `SystemServiceClients`.`order_item` ;
+DROP TABLE IF EXISTS `order_item` ;
 
-CREATE TABLE IF NOT EXISTS `SystemServiceClients`.`order_item` (
+CREATE TABLE IF NOT EXISTS `order_item` (
   `order_item_id` INT(11) NOT NULL,
   `order_id` INT(11) NOT NULL,
   `dish_id` INT(11) NOT NULL,
@@ -100,17 +97,17 @@ CREATE TABLE IF NOT EXISTS `SystemServiceClients`.`order_item` (
   INDEX `fk_dish_id_idx` (`dish_id` ASC),
   CONSTRAINT `fk_order_id`
     FOREIGN KEY (`order_id`)
-    REFERENCES `SystemServiceClients`.`order` (`order_id`)
+    REFERENCES `orders` (`order_id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_dish_id`
     FOREIGN KEY (`dish_id`)
-    REFERENCES `SystemServiceClients`.`dish` (`dish_id`)
+    REFERENCES `dish` (`dish_id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
-SET SQL_MODE=@OLD_SQL_MODE;
-SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
-SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
+-- SET SQL_MODE=@OLD_SQL_MODE;
+-- SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
+-- SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
