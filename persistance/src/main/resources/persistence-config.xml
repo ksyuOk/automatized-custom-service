@@ -9,7 +9,7 @@
     <context:annotation-config/>
     <context:component-scan base-package="acs.persistence.dao"/>
 
-    <context:property-placeholder location='jdbc.properties'/>
+    <context:property-placeholder location='classpath:jdbc.properties'/>
 
     <!--<tx:annotation-driven transaction-manager="transactionManager" />-->
 
