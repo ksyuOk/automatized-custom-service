@@ -11,7 +11,7 @@ import org.springframework.stereotype.Repository;
  */
 @Repository
 public class CategoryMenuDAOImpl extends BaseDao<CategoryMenu> implements ICategoryMenuDAO {
-    public CategoryMenuDAOImpl(Class<CategoryMenu> entity) {
-        super(entity);
+    public CategoryMenuDAOImpl() {
+        super(CategoryMenu.class);
     }
 }

@@ -11,7 +11,13 @@ import org.springframework.stereotype.Repository;
  */
 @Repository
 public class ClientDAOImpl extends BaseDao<Client> implements IClientDAO {
-    public ClientDAOImpl(Class<Client> entity) {
-        super(entity);
+
+    public ClientDAOImpl() {
+        super(Client.class);
+    }
+
+    @Override
+    public void updateEmail(String newEmail, String oldEmail) {
+
     }
 }

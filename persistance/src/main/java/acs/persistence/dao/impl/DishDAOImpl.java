@@ -11,7 +11,7 @@ import org.springframework.stereotype.Repository;
  */
 @Repository
 public class DishDAOImpl extends BaseDao<Dish> implements IDishDAO {
-    public DishDAOImpl(Class<Dish> entity) {
-        super(entity);
+    public DishDAOImpl() {
+        super(Dish.class);
     }
 }

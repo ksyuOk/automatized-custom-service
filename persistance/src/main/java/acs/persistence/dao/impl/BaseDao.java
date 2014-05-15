@@ -36,7 +36,13 @@ public class BaseDao<T extends BaseEntity> implements IBaseDao<T> {
 
     @Override
     public T save(T t) {
-        return em.merge(t);
+        em.persist(t);
+        return t;
+    }
+
+    @Override
+    public T update(T e) {
+        return em.merge(e);
     }
 
     @Override

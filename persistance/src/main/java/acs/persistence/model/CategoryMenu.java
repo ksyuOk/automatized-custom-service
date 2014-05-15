@@ -24,7 +24,7 @@ public class CategoryMenu extends BaseEntity {
     byte[] image;
 
     @OneToMany(cascade = {CascadeType.PERSIST, CascadeType.REFRESH})
-    private Set<Dish> dishs;
+    private Set<Dish> dishes;
 
     public Integer getId() {
         return id;
@@ -34,12 +34,12 @@ public class CategoryMenu extends BaseEntity {
         this.id = id;
     }
 
-    public Set<Dish> getDishs() {
-        return dishs;
+    public Set<Dish> getDishes() {
+        return dishes;
     }
 
-    public void setDishs(Set<Dish> dishs) {
-        this.dishs = dishs;
+    public void setDishes(Set<Dish> dishes) {
+        this.dishes = dishes;
     }
 
     public String getName() {

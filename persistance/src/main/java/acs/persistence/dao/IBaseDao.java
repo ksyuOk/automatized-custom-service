@@ -15,5 +15,7 @@ public interface IBaseDao<T extends BaseEntity> {
 
     T save(T e);
 
+    T update (T e);
+
     List<T> readAll();
 }

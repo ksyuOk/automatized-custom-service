@@ -12,7 +12,7 @@ import org.springframework.stereotype.Repository;
  */
 @Repository
 public class OrderItemDAOImpl extends BaseDao<OrderItem> implements IOrderItemDAO{
-    public OrderItemDAOImpl(Class<OrderItem> entity) {
-        super(entity);
+    public OrderItemDAOImpl() {
+        super(OrderItem.class);
     }
 }
