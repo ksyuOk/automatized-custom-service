@@ -24,4 +24,14 @@ public class ClientServiceImpl implements ClientService{
         client.setEmail(email);
         clientDAO.save(client);
     }
+
+    @Override
+    public void updateClient() {
+        //To change body of implemented methods use File | Settings | File Templates.
+    }
+
+    @Override
+    public void deleteClient(int id) {
+        clientDAO.delete(id);
+    }
 }

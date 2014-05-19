@@ -11,4 +11,8 @@ public interface ClientService {
 
     @Transactional
     void saveClient(String userName, String email);
+
+    void updateClient();
+
+    void deleteClient(int id);
 }
