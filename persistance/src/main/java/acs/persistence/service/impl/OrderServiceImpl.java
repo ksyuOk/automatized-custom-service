@@ -39,4 +39,24 @@ public class OrderServiceImpl implements OrderService{
 
         orderDao.save(order);
     }
+
+    @Override
+    public List<Order> getOrderByClient(int clientId) {
+        return orderDao.getOrderByClient(clientId);
+    }
+
+    @Override
+    public void updateStatusOrder(int idOrder, String status) {
+        orderDao.updateStatusOrder(idOrder, status);
+    }
+
+    @Override
+    public void updateRateOrder(int idOrder, int rate) {
+        orderDao.updateRateOrder(idOrder, rate);
+    }
+
+    @Override
+    public void deleteOrder(int idOrder) {
+        orderDao.delete(idOrder);
+    }
 }

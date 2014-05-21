@@ -26,8 +26,13 @@ public class ClientServiceImpl implements ClientService{
     }
 
     @Override
-    public void updateClient() {
-        //To change body of implemented methods use File | Settings | File Templates.
+    public Client getIdClientByEmail(String email) {
+        return clientDAO.getClientIdByEmail(email);
+    }
+
+    @Override
+    public void updateEmail(int idClient, String newEmail) {
+        clientDAO.updateEmail(idClient, newEmail);
     }
 
     @Override

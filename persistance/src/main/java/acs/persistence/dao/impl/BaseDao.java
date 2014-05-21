@@ -5,7 +5,6 @@ import acs.persistence.model.BaseEntity;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import javax.persistence.PersistenceUnit;
 import javax.persistence.Query;
 import java.io.Serializable;
 import java.util.List;
@@ -48,7 +47,7 @@ public class BaseDao<T extends BaseEntity> implements IBaseDao<T> {
 
     @Override
     public List<T> readAll(String tableName) {
-        Query query = this.em.createQuery("select * from " + tableName + ";");
+        Query query = this.em.createQuery("select allRows from " + tableName + " allRows");
         List<T> allFields = query.getResultList();
         return allFields;
     }

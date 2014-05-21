@@ -45,7 +45,7 @@ public class DishServiceImpl implements DishService{
 
     @Override
     public List<Dish> getDishesByCategory(int idCategory) {
-        return null;  //To change body of implemented methods use File | Settings | File Templates.
+        return dishDAO.getDishesByCategory(idCategory);
     }
 
     @Override

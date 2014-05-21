@@ -1,5 +1,6 @@
 package acs.persistence.service;
 
+import acs.persistence.model.Client;
 import org.springframework.transaction.annotation.Transactional;
 
 /**
@@ -12,7 +13,12 @@ public interface ClientService {
     @Transactional
     void saveClient(String userName, String email);
 
-    void updateClient();
+    @Transactional
+    Client getIdClientByEmail(String email);
 
+    @Transactional
+    void updateEmail(int idClient, String newEmail);
+
+    @Transactional
     void deleteClient(int id);
 }
