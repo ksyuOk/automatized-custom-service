@@ -17,7 +17,7 @@ public class CategoryMenu extends BaseEntity {
     @Column(name = "category_id", nullable = false)
     Integer id;
 
-    @Column(name = "name", nullable = false)
+    @Column(name = "category_name", nullable = false)
     String name;
 
     @Column(name = "image", nullable = false)

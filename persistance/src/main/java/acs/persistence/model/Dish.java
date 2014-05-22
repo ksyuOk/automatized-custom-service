@@ -30,10 +30,10 @@ public class Dish extends BaseEntity {
     Double price;
 
     @Column(name = "large_image_dish", nullable = false)
-    Byte largeImageDish;
+    byte [] largeImageDish;
 
     @Column(name = "image_dish", nullable = false)
-    Byte imageDish;
+    byte [] imageDish;
 
     @ManyToOne
     @JoinColumn(name = "category_id")
@@ -79,19 +79,19 @@ public class Dish extends BaseEntity {
         this.price = price;
     }
 
-    public Byte getLargeImageDish() {
+    public byte[] getLargeImageDish() {
         return largeImageDish;
     }
 
-    public void setLargeImageDish(Byte largeImageDish) {
+    public void setLargeImageDish(byte[] largeImageDish) {
         this.largeImageDish = largeImageDish;
     }
 
-    public Byte getImageDish() {
+    public byte[] getImageDish() {
         return imageDish;
     }
 
-    public void setImageDish(Byte imageDish) {
+    public void setImageDish(byte[] imageDish) {
         this.imageDish = imageDish;
     }
 

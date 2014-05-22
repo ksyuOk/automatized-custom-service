@@ -15,13 +15,13 @@ import java.util.List;
  * Date: 14.05.14
  */
 @Service("dish")
-public class DishServiceImpl implements DishService{
+public class DishServiceImpl implements DishService {
 
     @Autowired
     IDishDAO dishDAO;
 
     @Override
-    public void addNewDish(String name, String description, Date timeCook, Double price, Byte imageDish, Byte largeImageDish) {
+    public void addNewDish(String name, String description, Date timeCook, Double price, byte [] imageDish, byte [] largeImageDish) {
         Dish dish = new Dish();
         dish.setDishName(name);
         dish.setDescription(description);
