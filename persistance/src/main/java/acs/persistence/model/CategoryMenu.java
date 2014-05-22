@@ -14,7 +14,7 @@ import java.util.Set;
 public class CategoryMenu extends BaseEntity {
 
     @Id
-    @Column(name = "categoryId", nullable = false)
+    @Column(name = "category_id", nullable = false)
     Integer id;
 
     @Column(name = "name", nullable = false)

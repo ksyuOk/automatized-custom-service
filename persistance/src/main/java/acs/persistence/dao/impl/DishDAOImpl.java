@@ -20,7 +20,7 @@ public class DishDAOImpl extends BaseDao<Dish> implements IDishDAO {
 
     @Override
     public List<Dish> getDishesByCategory(int idCategory) {
-        Query query = this.em.createQuery("SELECT dish FROM Dish dish WHERE dish.category_id = :idCategory", Dish.class);
+        Query query = this.em.createQuery("SELECT dish FROM Dish dish WHERE dish.categoryMenu.id = :idCategory", Dish.class);
         query.setParameter("idCategory", idCategory);
         return query.getResultList();
     }

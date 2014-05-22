@@ -36,7 +36,7 @@ public class Dish extends BaseEntity {
     Byte imageDish;
 
     @ManyToOne
-    @JoinColumn(name = "categoryId")
+    @JoinColumn(name = "category_id")
     private CategoryMenu categoryMenu;
 
     public Integer getId() {
