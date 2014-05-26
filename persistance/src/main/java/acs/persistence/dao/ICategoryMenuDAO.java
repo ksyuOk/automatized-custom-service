@@ -10,6 +10,4 @@ import java.util.List;
  * Date: 14.05.14
  */
 public interface ICategoryMenuDAO extends IBaseDao<CategoryMenu> {
-
-    List<CategoryMenu> getAllCategories();
 }

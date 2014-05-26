@@ -17,11 +17,4 @@ public class CategoryMenuDAOImpl extends BaseDao<CategoryMenu> implements ICateg
     public CategoryMenuDAOImpl() {
         super(CategoryMenu.class);
     }
-
-    @Override
-    public List<CategoryMenu> getAllCategories() {
-        Query query = this.em.createQuery("select category from  CategoryMenu category");
-        List<CategoryMenu> allFields = query.getResultList();
-        return null;
-    }
 }

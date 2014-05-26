@@ -14,7 +14,7 @@ import java.util.List;
 public interface DishService {
 
     @Transactional
-    void addNewDish(String name, String description, Date timeCook, Double price, byte [] imageDish, byte [] largeImageDish);
+    void addNewDish(String name, String description, Date timeCook, Double price, byte[] imageDish, byte[] largeImageDish);
 
     @Transactional
     Dish updateDish(int id);

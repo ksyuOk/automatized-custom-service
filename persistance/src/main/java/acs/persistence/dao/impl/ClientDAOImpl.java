@@ -25,7 +25,7 @@ public class ClientDAOImpl extends BaseDao<Client> implements IClientDAO {
         Query query = em.createQuery("select client from Client client where client.email = :email");
         query.setParameter("email", email);
         List<Client> resultList = query.getResultList();
-        if(!resultList.isEmpty() && resultList.size() == 0){
+        if(!resultList.isEmpty()){
             return resultList.get(0);
         }
         return null;
@@ -33,8 +33,10 @@ public class ClientDAOImpl extends BaseDao<Client> implements IClientDAO {
 
     @Override
     public void updateEmail(int idClient, String newEmail) {
-        Query query = em.createQuery("update Client client set client.email = :newEmail");
+        Query query = em.createQuery("update Client client set client.email = :newEmail where client.id = :idClient");
         query.setParameter("newEmail", newEmail);
+        query.setParameter("idClient", idClient);
+        int i = query.executeUpdate();
     }
 
 }

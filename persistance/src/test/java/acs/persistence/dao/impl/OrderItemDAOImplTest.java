@@ -1,9 +1,7 @@
 package acs.persistence.dao.impl;
 
-import acs.persistence.dao.IDishDAO;
-import acs.persistence.dao.IOrderDao;
-import acs.persistence.model.Dish;
-import acs.persistence.model.Order;
+import acs.persistence.dao.IOrderItemDAO;
+import acs.persistence.model.OrderItem;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -13,22 +11,20 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.transaction.TransactionConfiguration;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.List;
-
-import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
 /**
- * Created by vbiloshkurskyi on 5/13/14.
+ * Created with IntelliJ IDEA.
+ * User: oksana
+ * Date: 24.05.14
  */
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = {"classpath:persistence-config-test.xml"})
 @TransactionConfiguration(defaultRollback = true)
 @Transactional
-public class DishDaoImplTest {
-
+public class OrderItemDAOImplTest {
     @Autowired
-    private IDishDAO dishDAO;
+    IOrderItemDAO orderItemDao;
 
     @Before
     public void setUp() throws Exception {
@@ -36,8 +32,9 @@ public class DishDaoImplTest {
     }
 
     @Test
-    public void testGetDishByCategory() {
-        List<Dish> dishesByCategory = dishDAO.getDishesByCategory(1);
-        assertEquals("Expected dishes", false, dishesByCategory.isEmpty());
+    public void testGetOrderItem(){
+        OrderItem orderItem = orderItemDao.read(new Integer(1));
+        assertNotNull("Expected order", orderItem);
     }
+
 }

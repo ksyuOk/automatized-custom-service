@@ -29,10 +29,10 @@ public class Dish extends BaseEntity {
     @Column(name = "price", nullable = false)
     Double price;
 
-    @Column(name = "large_image_dish", nullable = false)
+    @Column(name = "large_image_dish", nullable = true)
     byte [] largeImageDish;
 
-    @Column(name = "image_dish", nullable = false)
+    @Column(name = "image_dish", nullable = true)
     byte [] imageDish;
 
     @ManyToOne

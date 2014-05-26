@@ -20,7 +20,7 @@ public class CategoryMenu extends BaseEntity {
     @Column(name = "category_name", nullable = false)
     String name;
 
-    @Column(name = "image", nullable = false)
+    @Column(name = "image", nullable = true)
     byte[] image;
 
     @OneToMany(cascade = {CascadeType.PERSIST, CascadeType.REFRESH})

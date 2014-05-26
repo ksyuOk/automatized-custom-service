@@ -1,7 +1,9 @@
 package acs.persistence.dao;
 
 import acs.persistence.model.BaseEntity;
+import org.springframework.transaction.annotation.Transactional;
 
+import javax.transaction.Transaction;
 import java.io.Serializable;
 import java.util.List;
 
