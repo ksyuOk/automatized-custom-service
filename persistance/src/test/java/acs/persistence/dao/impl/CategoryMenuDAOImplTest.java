@@ -45,18 +45,16 @@ public class CategoryMenuDAOImplTest {
     @Test
     public void testAddNewCategory() {
         CategoryMenu categoryMenu = new CategoryMenu();
-        categoryMenu.setId(3);
         categoryMenu.setName("Обеды");
 
-        Set<Dish> dishes = new HashSet<Dish>();
-        Dish dish = new Dish();
-        dish.setId(2);
-        dish.setDishName("Карпачо");
-        dish.setPrice(45.0);
-        dish.setCategoryMenu(categoryMenu);
-        dishes.add(dish);
-
-        categoryMenu.setDishes(dishes);
+//        Set<Dish> dishes = new HashSet<Dish>();
+//        Dish dish = new Dish();
+//        dish.setDishName("Карпачо");
+//        dish.setPrice(45.0);
+//        dish.setCategoryMenu(categoryMenu);
+//        dishes.add(dish);
+//
+//        categoryMenu.setDishes(dishes);
         List<CategoryMenu> allCategories = categoryMenuDAO.readAll("CategoryMenu");
         int size = allCategories.size();
         categoryMenuDAO.save(categoryMenu);

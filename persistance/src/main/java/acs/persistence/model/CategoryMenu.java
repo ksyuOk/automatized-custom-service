@@ -13,6 +13,7 @@ import java.util.Set;
 @Table(name = "category_menu")
 public class CategoryMenu extends BaseEntity {
 
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Id
     @Column(name = "category_id", nullable = false)
     Integer id;

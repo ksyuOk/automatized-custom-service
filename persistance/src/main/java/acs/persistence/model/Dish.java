@@ -13,6 +13,7 @@ import java.util.Date;
 @Table(name = "dish")
 public class Dish extends BaseEntity {
 
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Id
     @Column(name = "dish_id", nullable = false)
     Integer id;
