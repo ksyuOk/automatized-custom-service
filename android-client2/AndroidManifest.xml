@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="com.example.android_client"
+          package="com.example.android_client2"
           android:versionCode="1"
           android:versionName="1.0">
-    <uses-sdk android:minSdkVersion="10"/>
-    <application android:label="@string/app_name">
-        <activity android:name=".MainActivity"
+    <uses-sdk android:minSdkVersion="17"/>
+    <application android:label="@string/app_name" android:icon="@drawable/ic_launcher">
+        <activity android:name="MyActivity"
                   android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
@@ -13,4 +13,4 @@
             </intent-filter>
         </activity>
     </application>
-</manifest> 
+</manifest>

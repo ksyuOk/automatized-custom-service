@@ -1,9 +1,9 @@
-package com.example.android_client;
+package com.example.android_client2;
 
 import android.app.Activity;
 import android.os.Bundle;
 
-public class MainActivity extends Activity {
+public class MyActivity extends Activity {
     /**
      * Called when the activity is first created.
      */
