@@ -31,11 +31,6 @@ public class ClientServiceImpl implements ClientService{
     }
 
     @Override
-    public void updateEmail(int idClient, String newEmail) {
-        clientDAO.updateEmail(idClient, newEmail);
-    }
-
-    @Override
     public void deleteClient(int id) {
         clientDAO.delete(id);
     }

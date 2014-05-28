@@ -9,7 +9,5 @@ import acs.persistence.model.Client;
  */
 public interface IClientDAO extends IBaseDao<Client> {
 
-    void updateEmail(int idClient, String newEmail);
-
     Client getClientIdByEmail(String email);
 }

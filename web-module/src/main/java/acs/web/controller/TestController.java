@@ -17,7 +17,7 @@ public class TestController {
         return "test";
     }
 
-    @RequestMapping(value = "/service/message/{id}", method = RequestMethod.GET)
+    @RequestMapping(value = "/service/message/{id}", method = RequestMethod.GET, produces = {"application/json"})
     @ResponseBody
     public OrderItem getOrderItem(@PathVariable(value = "id") Integer id, Model model) {
         OrderItem orderItem = new OrderItem();
@@ -27,5 +27,6 @@ public class TestController {
         return orderItem;
     }
 
+    @RequestMapping(value = "/")
 
 }

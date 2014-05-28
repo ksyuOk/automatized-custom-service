@@ -41,10 +41,9 @@ public class ClientDaoImplTest {
     @Test
     public void testUpdateEmail(){
         Client client = clientDAO.read(1);
-        String emailClient = client.getEmail();
-        clientDAO.updateEmail(1, "cocosha@mail.ru");
+        client.setEmail("newEmail@llal");
+        clientDAO.update(client);
         Client updateClient = clientDAO.read(1);
-        String newEmailClient = client.getEmail();
-        assertEquals("Expected client", false, emailClient.equals(newEmailClient));
+        assertEquals("Expected client", "newEmail@llal", updateClient.getEmail());
     }
 }

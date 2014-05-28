@@ -40,7 +40,7 @@ public class DishServiceImpl implements DishService{
     @Override
     public List<Dish> getAllDishes() {
         String nameTable = "dish";
-        return dishDAO.readAll(nameTable);
+        return dishDAO.readAll();
     }
 
     @Override

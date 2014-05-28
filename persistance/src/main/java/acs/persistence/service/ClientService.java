@@ -17,8 +17,5 @@ public interface ClientService {
     Client getIdClientByEmail(String email);
 
     @Transactional
-    void updateEmail(int idClient, String newEmail);
-
-    @Transactional
     void deleteClient(int id);
 }

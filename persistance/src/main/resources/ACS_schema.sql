@@ -9,7 +9,7 @@
 DROP TABLE IF EXISTS `category_menu` ;
 
 CREATE TABLE `category_menu` (
-  `category_id` INT(11) NOT NULL,
+  `category_id` INT(11) NOT NULL AUTO_INCREMENT,
   `category_name` VARCHAR(50) NOT NULL,
   `image` BLOB NOT NULL,
   PRIMARY KEY (`category_id`),

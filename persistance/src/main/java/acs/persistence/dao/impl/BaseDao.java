@@ -46,8 +46,8 @@ public class BaseDao<T extends BaseEntity> implements IBaseDao<T> {
     }
 
     @Override
-    public List<T> readAll(String tableName) {
-        Query query = this.em.createQuery("select allRows from " + tableName + " allRows");
+    public List<T> readAll() {
+        Query query = this.em.createQuery("select allRows from " + entity.getCanonicalName() + " allRows");
         List<T> allFields = query.getResultList();
         return allFields;
     }

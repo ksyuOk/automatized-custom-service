@@ -1,14 +1,12 @@
 package acs.persistence.service.impl;
 
 import acs.persistence.dao.ICategoryMenuDAO;
-import acs.persistence.dao.impl.CategoryMenuDAOImpl;
 import acs.persistence.model.CategoryMenu;
 import acs.persistence.model.Dish;
 import acs.persistence.service.CategoryMenuService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -40,7 +38,7 @@ public class CategoryMenuServiceImpl implements CategoryMenuService{
     @Override
     public List<CategoryMenu> getAllCategories() {
         String tableName = "category_menu";
-        return categoryMenuDAO.readAll(tableName);
+        return categoryMenuDAO.readAll();
     }
 
     @Override
