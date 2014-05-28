@@ -10,7 +10,7 @@
     <version>1.0-SNAPSHOT</version>
 
     <modules>
-        <!--<module>android-client</module>-->
+        <module>android-client</module>
         <module>persistance</module>
         <module>web-module</module>
     </modules>

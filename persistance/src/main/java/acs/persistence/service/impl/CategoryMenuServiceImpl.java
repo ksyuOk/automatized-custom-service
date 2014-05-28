@@ -37,7 +37,6 @@ public class CategoryMenuServiceImpl implements CategoryMenuService{
 
     @Override
     public List<CategoryMenu> getAllCategories() {
-        String tableName = "category_menu";
         return categoryMenuDAO.readAll();
     }
 
