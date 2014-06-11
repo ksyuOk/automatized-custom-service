@@ -1,40 +1,20 @@
 package com.example.android_client2.fragments;
 
 
-import android.app.Activity;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import com.example.android_client2.R;
+import com.example.android_client2.model.CategoriesFeed;
+import com.example.android_client2.requests.CategoryRequest;
+import com.octo.android.robospice.persistence.DurationInMillis;
+import com.octo.android.robospice.persistence.exception.SpiceException;
+import com.octo.android.robospice.request.listener.RequestListener;
 
-public class CategoryFragment extends Fragment {
+public class CategoryFragment extends BaseSpiceFragment {
 
-    public ActionsListener actionsListener;
-
-    public interface ActionsListener {
-
-        void onCategorySelected(String selectedItem);
-
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-    }
-
-    @Override
-    public void onAttach(Activity activity) {
-        super.onAttach(activity);
-        // Check that the container activity has implemented the callback interface
-        try {
-            actionsListener = (ActionsListener) activity;
-        } catch (ClassCastException e) {
-            throw new ClassCastException(activity.toString()
-                    + " must implement ActionsListener");
-        }
-    }
+    private CategoryRequest mCategoryRequest;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -45,10 +25,27 @@ public class CategoryFragment extends Fragment {
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         initFragmentViews();
+        mCategoryRequest = new CategoryRequest();
     }
 
     private void initFragmentViews() {
 
     }
 
+    private RequestListener<CategoriesFeed> categoriesFeedRequestListener = new RequestListener<CategoriesFeed>() {
+        @Override
+        public void onRequestFailure(SpiceException spiceException) {
+            //To change body of implemented methods use File | Settings | File Templates.
+        }
+
+        @Override
+        public void onRequestSuccess(CategoriesFeed categoriesFeed) {
+            CategoriesFeed categoriesFeed1 = categoriesFeed;
+        }
+    };
+
+    public void loadCategories() {
+        getSpiceManager().execute(mCategoryRequest, CategoryRequest.getCacheKey(),
+                DurationInMillis.ALWAYS, categoriesFeedRequestListener);
+    }
 }

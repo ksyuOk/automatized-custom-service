@@ -4,6 +4,8 @@ import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import com.example.android_client2.fragments.CategoryFragment;
 import com.example.android_client2.requests.GetAllCategories;
+import org.springframework.http.converter.StringHttpMessageConverter;
+import org.springframework.web.client.RestTemplate;
 
 public class MyActivity extends FragmentActivity implements CategoryFragment.ActionsListener{
 
@@ -19,8 +21,13 @@ public class MyActivity extends FragmentActivity implements CategoryFragment.Act
     }
 
     private void startLoadMenu(){
-        GetAllCategories getAllCategories = (GetAllCategories) new GetAllCategories();
-        getAllCategories.execute();
+//        GetAllCategories getAllCategories = new GetAllCategories();
+//        getAllCategories.execute();
+
+        String getCategoriesUrl = ConstantsACS.GET_CATEGORIES_URL;
+        RestTemplate restTemplate = new RestTemplate();
+        restTemplate.getMessageConverters().add(new StringHttpMessageConverter());
+
 
     }
 

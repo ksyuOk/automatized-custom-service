@@ -16,7 +16,7 @@ public class GetAllCategories extends AsyncTask {
     @Override
     protected Object doInBackground(Object... objects) {
         HttpClient httpClient = new DefaultHttpClient();
-        String url = "http://172.27.235.139:8085/service/categories/all";
+        String url = "http://10.0.2.2:8085/service/categories/all";
         String updateUrl = Uri.decode(url);
         HttpGet httpGet = new HttpGet(updateUrl);
 //        httpGet.setHeader("accept", "application/json");
