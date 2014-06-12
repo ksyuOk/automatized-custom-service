@@ -3,9 +3,7 @@ package com.example.android_client2.requests;
 import com.example.android_client2.ConstantsACS;
 import com.example.android_client2.model.CategoriesFeed;
 import com.octo.android.robospice.request.springandroid.SpringAndroidSpiceRequest;
-import org.springframework.http.HttpEntity;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpMethod;
+import org.springframework.http.*;
 
 public class CategoryRequest extends SpringAndroidSpiceRequest<CategoriesFeed> {
 
@@ -15,6 +13,7 @@ public class CategoryRequest extends SpringAndroidSpiceRequest<CategoriesFeed> {
     public CategoryRequest() {
         super(CategoriesFeed.class);
         headers = new HttpHeaders();
+        headers.setContentType(new MediaType("application", "json"));
         mRequestEntity = new HttpEntity<Object>(headers);
     }
 

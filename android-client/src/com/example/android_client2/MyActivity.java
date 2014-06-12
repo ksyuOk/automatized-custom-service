@@ -3,7 +3,10 @@ package com.example.android_client2;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import com.example.android_client2.fragments.CategoryFragment;
+import com.example.android_client2.model.CategoriesFeed;
 import com.example.android_client2.requests.GetAllCategories;
+import org.springframework.http.HttpMethod;
+import org.springframework.http.ResponseEntity;
 import org.springframework.http.converter.StringHttpMessageConverter;
 import org.springframework.web.client.RestTemplate;
 
@@ -17,16 +20,12 @@ public class MyActivity extends FragmentActivity implements CategoryFragment.Act
         setContentView(R.layout.main);
 
         categoryFragment = (CategoryFragment) getSupportFragmentManager().findFragmentById(R.id.fr_category);
-        startLoadMenu();
+//        startLoadMenu();
     }
 
     private void startLoadMenu(){
-//        GetAllCategories getAllCategories = new GetAllCategories();
-//        getAllCategories.execute();
-
-        String getCategoriesUrl = ConstantsACS.GET_CATEGORIES_URL;
-        RestTemplate restTemplate = new RestTemplate();
-        restTemplate.getMessageConverters().add(new StringHttpMessageConverter());
+        GetAllCategories getAllCategories = new GetAllCategories();
+        getAllCategories.execute();
 
 
     }

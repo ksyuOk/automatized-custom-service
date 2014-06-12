@@ -57,7 +57,7 @@ public class TestController {
         beatrice.setDescription("Beatrice includes different delicious ingredients");
         beatrice.setPrice(30.0);
         beatrice.setTimeCook(new Date(20));
-        categorySnacks.setDishes(dishSetOfSnacks);
+//        categorySnacks.setDishes(dishSetOfSnacks);
 
         CategoryMenu breakfasts = new CategoryMenu();
         breakfasts.setName("Breakfasts");

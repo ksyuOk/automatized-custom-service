@@ -26,6 +26,7 @@ public class CategoryFragment extends BaseSpiceFragment {
         super.onActivityCreated(savedInstanceState);
         initFragmentViews();
         mCategoryRequest = new CategoryRequest();
+        loadCategories();
     }
 
     private void initFragmentViews() {
@@ -41,11 +42,14 @@ public class CategoryFragment extends BaseSpiceFragment {
         @Override
         public void onRequestSuccess(CategoriesFeed categoriesFeed) {
             CategoriesFeed categoriesFeed1 = categoriesFeed;
+
         }
     };
 
     public void loadCategories() {
         getSpiceManager().execute(mCategoryRequest, CategoryRequest.getCacheKey(),
                 DurationInMillis.ALWAYS, categoriesFeedRequestListener);
+
+
     }
 }
