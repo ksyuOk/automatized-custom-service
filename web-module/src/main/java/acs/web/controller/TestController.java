@@ -36,10 +36,8 @@ public class TestController {
     @RequestMapping(value = "/service/categories/all", method = RequestMethod.GET, produces = {"application/json"})
     @ResponseBody
     public List<CategoryMenu> getAllCategories(){
-//        CategoryMenuService categoryMenuService = ServiceFactory.getCategoryMenuService();
-//        List<CategoryMenu> allCategoriesMenu = categoryMenuService.getAllCategories();
-//        return allCategoriesMenu;
-        List<CategoryMenu> allCategoryMenu = new ArrayList<CategoryMenu>();
+        List<CategoryMenu> allCategoriesMenu = new LinkedList<CategoryMenu>();
+
         CategoryMenu categorySnacks = new CategoryMenu();
         categorySnacks.setName("Snacks");
         Set<Dish> dishSetOfSnacks = new HashSet<Dish>();
@@ -50,21 +48,10 @@ public class TestController {
         caesar.setDescription("Caesar includes different delicious ingredients");
         caesar.setPrice(45.0);
         caesar.setTimeCook(new Date(20));
+        dishSetOfSnacks.add(caesar);
+        categorySnacks.getDishes().add(caesar);
 
-        Dish beatrice  = new Dish();
-        beatrice.setDishName("Beatrice");
-        beatrice.setCategoryMenu(categorySnacks);
-        beatrice.setDescription("Beatrice includes different delicious ingredients");
-        beatrice.setPrice(30.0);
-        beatrice.setTimeCook(new Date(20));
-//        categorySnacks.setDishes(dishSetOfSnacks);
-
-        CategoryMenu breakfasts = new CategoryMenu();
-        breakfasts.setName("Breakfasts");
-        Set<Dish> dishSetOfBreakfasts = new HashSet<Dish>();
-
-        allCategoryMenu.add(categorySnacks);
-        allCategoryMenu.add(breakfasts);
-        return allCategoryMenu;
+        allCategoriesMenu.add(categorySnacks);
+        return allCategoriesMenu;
     }
 }

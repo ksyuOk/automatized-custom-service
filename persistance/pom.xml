@@ -50,25 +50,37 @@
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-core</artifactId>
-            <version>4.2.4.Final</version>
+            <version>4.2.6.Final</version>
         </dependency>
 
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-entitymanager</artifactId>
-            <version>4.2.4.Final</version>
+            <version>4.2.6.Final</version>
         </dependency>
 
         <dependency>
-            <groupId>commons-logging</groupId>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>2.3.2</version>
+        </dependency>
+        <dependency>
+            <!-- note: typically only ".0" patch version exists for core annotations -->
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-annotations</artifactId>
+            <version>2.3.2</version>
+        </dependency>
+
+        <dependency>
+        <groupId>commons-logging</groupId>
             <artifactId>commons-logging</artifactId>
             <version>1.1.1</version>
         </dependency>
 
         <!--<dependency>-->
-            <!--<groupId>org.aopalliance</groupId>-->
-            <!--<artifactId>com.springsource.org.aopalliance</artifactId>-->
-            <!--<version>1.0.0</version>-->
+        <!--<groupId>org.aopalliance</groupId>-->
+        <!--<artifactId>com.springsource.org.aopalliance</artifactId>-->
+        <!--<version>1.0.0</version>-->
         <!--</dependency>-->
 
         <dependency>

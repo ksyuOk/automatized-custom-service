@@ -1,5 +1,10 @@
 package acs.persistence.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+
 import javax.persistence.*;
 import java.util.Date;
 
@@ -36,6 +41,7 @@ public class Dish extends BaseEntity {
     @Column(name = "image_dish", nullable = true)
     byte [] imageDish;
 
+    @JsonBackReference("dishes")
     @ManyToOne
     @JoinColumn(name = "category_id")
     private CategoryMenu categoryMenu;

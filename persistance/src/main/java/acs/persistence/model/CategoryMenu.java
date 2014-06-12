@@ -1,6 +1,11 @@
 package acs.persistence.model;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+
 import javax.persistence.*;
+import java.util.HashSet;
 import java.util.Set;
 
 /**
@@ -11,6 +16,7 @@ import java.util.Set;
 
 @Entity
 @Table(name = "category_menu")
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
 public class CategoryMenu extends BaseEntity {
 
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -24,8 +30,9 @@ public class CategoryMenu extends BaseEntity {
     @Column(name = "image", nullable = true)
     byte[] image;
 
+    @JsonManagedReference("dishes")
     @OneToMany(cascade = {CascadeType.PERSIST, CascadeType.REFRESH})
-    private Set<Dish> dishes;
+    private Set<Dish> dishes = new HashSet<Dish>();
 
     public Integer getId() {
         return id;
