@@ -3,24 +3,29 @@ package acs.web.controller;
 import acs.persistence.model.CategoryMenu;
 import acs.persistence.model.Dish;
 import acs.persistence.service.CategoryMenuService;
+import org.apache.commons.io.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.io.IOException;
 import java.util.*;
 
 /**
  * Created by vbiloshkurskyi on 6/13/14.
  */
-@Controller
+@Controller("")
 public class CategoryController {
 
-    @Autowired
-    private CategoryMenuService categoryMenuService;
+//    @Autowired
+//    private CategoryMenuService categoryMenuService;
 
     @RequestMapping(value = "/service/categories", method = RequestMethod.GET, produces = {"application/json"})
     @ResponseBody
@@ -44,9 +49,18 @@ public class CategoryController {
         return allCategoriesMenu;
     }
 
-    @RequestMapping(value = "/service/categories/image/{catagoryId}", method = RequestMethod.GET, produces = MediaType.IMAGE_JPEG_VALUE)
+    @RequestMapping(value = "/service/categories/image/{categoryId}", method = RequestMethod.GET, produces = {MediaType.IMAGE_PNG_VALUE})
     @ResponseBody
-    public byte[] getCategoryImage(@PathVariable(value = "id") int categoryId) {
-        return categoryMenuService.getCategoryImage(categoryId);
+    public byte[] getCategoryImage(@PathVariable int categoryId) throws IOException {
+
+        return IOUtils.toByteArray(CategoryController.class.getResourceAsStream("/img/men.png"));
+
+//        return new ResponseEntity<byte[]>(
+//                IOUtils.toByteArray(CategoryController.class.getResourceAsStream("/img/men.png")),
+//                headers,
+//                HttpStatus.OK
+//        );
+
+//        return categoryMenuService.getCategoryImage(categoryId);
     }
 }
