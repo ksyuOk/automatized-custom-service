@@ -2,13 +2,8 @@ package acs.web.controller;
 
 import acs.persistence.model.CategoryMenu;
 import acs.persistence.model.Dish;
-import acs.persistence.service.CategoryMenuService;
 import org.apache.commons.io.IOUtils;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -55,11 +50,6 @@ public class CategoryController {
 
         return IOUtils.toByteArray(CategoryController.class.getResourceAsStream("/img/men.png"));
 
-//        return new ResponseEntity<byte[]>(
-//                IOUtils.toByteArray(CategoryController.class.getResourceAsStream("/img/men.png")),
-//                headers,
-//                HttpStatus.OK
-//        );
 
 //        return categoryMenuService.getCategoryImage(categoryId);
     }
