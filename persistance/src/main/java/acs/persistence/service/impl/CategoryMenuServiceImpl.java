@@ -44,4 +44,10 @@ public class CategoryMenuServiceImpl implements CategoryMenuService{
     public void deleteCategory(int id) {
         categoryMenuDAO.delete(id);
     }
+
+    @Override
+    public byte[] getCategoryImage(int id) {
+        CategoryMenu categoryMenu = categoryMenuDAO.read(id);
+        return categoryMenu.getImage();
+    }
 }

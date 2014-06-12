@@ -28,4 +28,6 @@ public interface CategoryMenuService {
 
     @Transactional
     void deleteCategory(int id);
+
+    byte[] getCategoryImage(int id);
 }

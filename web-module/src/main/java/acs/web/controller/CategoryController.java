@@ -2,38 +2,27 @@ package acs.web.controller;
 
 import acs.persistence.model.CategoryMenu;
 import acs.persistence.model.Dish;
-import acs.persistence.model.OrderItem;
 import acs.persistence.service.CategoryMenuService;
-import acs.persistence.service.ServiceFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.*;
 
 /**
- * Created by vbiloshkurskyi on 5/14/14.
+ * Created by vbiloshkurskyi on 6/13/14.
  */
 @Controller
-public class TestController {
+public class CategoryController {
 
-    @RequestMapping(value = "/test", method = RequestMethod.GET)
-    public String message(@RequestParam(value="message", required=false) String name, Model model) {
-        model.addAttribute("message", name);
-        return "test";
-    }
+    @Autowired
+    private CategoryMenuService categoryMenuService;
 
-    @RequestMapping(value = "/service/message/{id}", method = RequestMethod.GET, produces = {"application/json"})
-    @ResponseBody
-    public OrderItem getOrderItem(@PathVariable(value = "id") Integer id, Model model) {
-        OrderItem orderItem = new OrderItem();
-        orderItem.setId(id);
-        orderItem.setCount(2);
-        orderItem.setPrice(10);
-        return orderItem;
-    }
-
-    @RequestMapping(value = "/service/categories/all", method = RequestMethod.GET, produces = {"application/json"})
+    @RequestMapping(value = "/service/categories", method = RequestMethod.GET, produces = {"application/json"})
     @ResponseBody
     public List<CategoryMenu> getAllCategories(){
         List<CategoryMenu> allCategoriesMenu = new LinkedList<CategoryMenu>();
@@ -53,5 +42,11 @@ public class TestController {
 
         allCategoriesMenu.add(categorySnacks);
         return allCategoriesMenu;
+    }
+
+    @RequestMapping(value = "/service/categories/image/{catagoryId}", method = RequestMethod.GET, produces = MediaType.IMAGE_JPEG_VALUE)
+    @ResponseBody
+    public byte[] getCategoryImage(@PathVariable(value = "id") int categoryId) {
+        return categoryMenuService.getCategoryImage(categoryId);
     }
 }
