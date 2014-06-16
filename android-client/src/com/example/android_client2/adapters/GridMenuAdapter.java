@@ -29,6 +29,4 @@ public class GridMenuAdapter extends ArrayAdapter {
     public GridMenuAdapter(Context context, int resource, int textViewResourceId, List objects) {
         super(context, resource, textViewResourceId, objects);
     }
-
-
 }
