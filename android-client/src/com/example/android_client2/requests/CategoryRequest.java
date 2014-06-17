@@ -19,8 +19,8 @@ public class CategoryRequest extends SpringAndroidSpiceRequest<CategoriesFeed> {
 
     @Override
     public CategoriesFeed loadDataFromNetwork() throws Exception {
-        ResponseEntity<CategoriesFeed> result = getRestTemplate().exchange(ConstantsACS.GET_CATEGORIES_URL, HttpMethod.GET, mRequestEntity, getResultType());
-        CategoriesFeed bb = result.getBody();
+//        ResponseEntity<CategoriesFeed> result = getRestTemplate().exchange(ConstantsACS.GET_CATEGORIES_URL, HttpMethod.GET, mRequestEntity, getResultType());
+//        CategoriesFeed bb = result.getBody();
         return getRestTemplate().exchange(ConstantsACS.GET_CATEGORIES_URL, HttpMethod.GET, mRequestEntity,getResultType()).getBody();
     }
 

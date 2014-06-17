@@ -1,7 +1,8 @@
-package com.example.android_client2;
+package com.example.android_client2.activities;
 
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
+import com.example.android_client2.R;
 import com.example.android_client2.fragments.CategoryFragment;
 import com.example.android_client2.model.CategoriesFeed;
 import com.example.android_client2.requests.GetAllCategories;

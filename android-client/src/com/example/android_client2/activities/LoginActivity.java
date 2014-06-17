@@ -1,7 +1,8 @@
-package com.example.android_client2;
+package com.example.android_client2.activities;
 
 import android.app.Activity;
 import android.os.Bundle;
+import com.example.android_client2.R;
 
 public class LoginActivity extends Activity {
 
