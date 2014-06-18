@@ -61,10 +61,12 @@ public class GridMenuAdapter extends ArrayAdapter<Category> {
             holder = (ViewHolder) view.getTag();
         }
         if(category != null){
-            holder.nameCategory.setText(category.getNameCategory());
-            Bitmap bitmap = mImageLoader.loadImageSync("http://localhost:8085/service/categories/image/1.png");
-            mImageLoader.displayImage("http://localhost:8085/service/categories/image/1.png", holder.imageView);
-            mImageLoader.displayImage("http://localhost:8085/service/categories/image/1.png", holder.imageView, displayImageOptions);
+
+            new ImageDownloaderTask(holder.imageView).execute("http://localhost:8085/service/categories/image/1.png");
+//            holder.nameCategory.setText(category.getNameCategory());
+//            Bitmap bitmap = mImageLoader.loadImageSync("http://www.infopulse.com.ua/Global/TakeAway/ads/call_banner_text.png");
+//            mImageLoader.displayImage("http://localhost:8085/service/categories/image/1.png", holder.imageView);
+//            mImageLoader.displayImage("http://www.infopulse.com.ua/Global/TakeAway/ads/call_banner_text.png", holder.imageView, displayImageOptions);
         }
         return view;
     }

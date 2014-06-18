@@ -20,6 +20,10 @@
                   android:gravity="center"
                   android:numColumns="2"
                   android:verticalSpacing="25dp"/>
+        <!--<ImageView android:id="@+id/imageTest"-->
+                <!--android:layout_width="fill_parent"-->
+                   <!--android:layout_height="wrap_content"-->
+                   <!--/>-->
 
         <ImageView android:layout_width="fill_parent"
                    android:layout_height="wrap_content"
