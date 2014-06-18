@@ -44,7 +44,7 @@ public class CategoryController {
         return allCategoriesMenu;
     }
 
-    @RequestMapping(value = "/service/categories/image/{categoryId}", method = RequestMethod.GET, produces = {MediaType.IMAGE_PNG_VALUE})
+    @RequestMapping(value = "/service/categories/image/{categoryId}.png", method = RequestMethod.GET, produces = {MediaType.IMAGE_PNG_VALUE})
     @ResponseBody
     public byte[] getCategoryImage(@PathVariable int categoryId) throws IOException {
 

@@ -10,8 +10,8 @@ public class ACSApplication extends Application {
     public void onCreate() {
         super.onCreate();
         DisplayImageOptions defaultOptions = new DisplayImageOptions.Builder()
-                .cacheInMemory()
-                .cacheOnDisc()
+                .cacheInMemory(true)
+                .cacheOnDisc(true)
                 .build();
         ImageLoaderConfiguration config = new ImageLoaderConfiguration.Builder(getApplicationContext())
                 .defaultDisplayImageOptions(defaultOptions)

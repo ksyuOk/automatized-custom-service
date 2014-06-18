@@ -31,9 +31,8 @@ public class GridMenuAdapter extends ArrayAdapter<Category> {
         this.mContext = context;
         this.mImageLoader = ImageLoader.getInstance();
         this.displayImageOptions = new DisplayImageOptions.Builder()
-                .showStubImage(R.drawable.bg_logo)
                 .showImageForEmptyUri(R.drawable.bg_logo)
-                .cacheInMemory()
+                .cacheInMemory(true)
                 .build();
     }
 
@@ -63,8 +62,9 @@ public class GridMenuAdapter extends ArrayAdapter<Category> {
         }
         if(category != null){
             holder.nameCategory.setText(category.getNameCategory());
-            Bitmap bitmap = mImageLoader.loadImageSync("http://localhost:8085/service/categories/image/1");
-            mImageLoader.displayImage("http://localhost:8085/service/categories/image/1", holder.imageView, displayImageOptions);
+            Bitmap bitmap = mImageLoader.loadImageSync("http://localhost:8085/service/categories/image/1.png");
+            mImageLoader.displayImage("http://localhost:8085/service/categories/image/1.png", holder.imageView);
+            mImageLoader.displayImage("http://localhost:8085/service/categories/image/1.png", holder.imageView, displayImageOptions);
         }
         return view;
     }
