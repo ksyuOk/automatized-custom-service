@@ -2,6 +2,7 @@ package com.example.android_client2.adapters;
 
 import android.content.Context;
 import android.graphics.Bitmap;
+import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -31,20 +32,16 @@ public class GridMenuAdapter extends ArrayAdapter<Category> {
         this.mContext = context;
         this.mImageLoader = ImageLoader.getInstance();
         this.displayImageOptions = new DisplayImageOptions.Builder()
-                .showImageForEmptyUri(R.drawable.bg_logo)
+                .showImageForEmptyUri(R.drawable.men4)
                 .cacheInMemory(true)
                 .build();
     }
 
     private static class ViewHolder{
         TextView nameCategory;
-        ImageView imageView;
+        ImageView categoryImage;
+        ImageView categoryNameImage;
     }
-
-//    @Override
-//    public int getViewTypeCount() {
-//        return 2;
-//    }
 
     @Override
     public View getView(int position, View view, ViewGroup viewGroup){
@@ -54,20 +51,20 @@ public class GridMenuAdapter extends ArrayAdapter<Category> {
             LayoutInflater layoutInflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             view = layoutInflater.inflate(mLayoutResourceId, null);
             holder = new ViewHolder();
-            holder.nameCategory = (TextView) view.findViewById(R.id.categoryName);
-            holder.imageView = (ImageView) view.findViewById(R.id.image_category);
+//            holder.nameCategory = (TextView) view.findViewById(R.id.categoryName);
+            holder.categoryImage = (ImageView) view.findViewById(R.id.image_category);
+//            holder.categoryNameImage = (ImageView) view.findViewById(R.id.image_name_category);
             view.setTag(holder);
         } else {
             holder = (ViewHolder) view.getTag();
         }
         if(category != null){
-
-            new ImageDownloaderTask(holder.imageView).execute("http://localhost:8085/service/categories/image/1.png");
 //            holder.nameCategory.setText(category.getNameCategory());
-//            Bitmap bitmap = mImageLoader.loadImageSync("http://www.infopulse.com.ua/Global/TakeAway/ads/call_banner_text.png");
-//            mImageLoader.displayImage("http://localhost:8085/service/categories/image/1.png", holder.imageView);
-//            mImageLoader.displayImage("http://www.infopulse.com.ua/Global/TakeAway/ads/call_banner_text.png", holder.imageView, displayImageOptions);
+
+            mImageLoader.displayImage("http://10.0.2.2:8085/service/categories/image/1.png", holder.categoryImage);
+//            mImageLoader.displayImage("http://localhost:8085/service/categories/image/1.png", holder.categoryImage, displayImageOptions);
         }
         return view;
     }
 }
+

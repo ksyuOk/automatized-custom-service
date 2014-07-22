@@ -8,5 +8,10 @@
               android:id="@+id/fr_category"
               android:layout_width="match_parent"
               android:layout_height="match_parent"/>
+
+    <fragment android:name="com.example.android_client2.fragments.DishesFragment"
+              android:id="@+id/fr_dishes"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"/>
 </FrameLayout>
 
