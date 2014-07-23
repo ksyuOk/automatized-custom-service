@@ -36,7 +36,7 @@
               android:ellipsize="end"
               android:text="38 грн."
               android:textColor="#000000"/>
-    <TextView android:id="@+id/dishIngredients"
+    <TextView android:id="@+id/dishDescription"
               android:layout_marginBottom="10dp"
               android:layout_gravity="bottom"
               android:layout_height="wrap_content"
