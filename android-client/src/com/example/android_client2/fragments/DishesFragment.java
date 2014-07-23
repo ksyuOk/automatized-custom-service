@@ -8,12 +8,16 @@ import android.view.ViewGroup;
 import android.widget.ListView;
 import com.example.android_client2.R;
 import com.example.android_client2.model.DishesFeed;
+import com.example.android_client2.requests.CategoryRequest;
+import com.example.android_client2.requests.DishesRequest;
+import com.octo.android.robospice.persistence.DurationInMillis;
 import com.octo.android.robospice.persistence.exception.SpiceException;
 import com.octo.android.robospice.request.listener.RequestListener;
 
 public class DishesFragment extends BaseSpiceFragment {
 
     private static String TAG = DishesFragment.class.getSimpleName();
+    private DishesRequest mDishesRequest;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -23,6 +27,8 @@ public class DishesFragment extends BaseSpiceFragment {
 
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
+        mDishesRequest = new DishesRequest();
+        loadDishes();
     }
 
     private RequestListener<DishesFeed> dishesFeedRequestListener = new RequestListener<DishesFeed>() {
@@ -59,4 +65,9 @@ public class DishesFragment extends BaseSpiceFragment {
 //            });
 //        }
 //    };
+
+    public void loadDishes() {
+        getSpiceManager().execute(mDishesRequest, CategoryRequest.getCacheKey(),
+                DurationInMillis.ALWAYS, dishesFeedRequestListener);
+    }
 }
