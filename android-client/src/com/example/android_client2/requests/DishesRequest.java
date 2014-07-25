@@ -3,10 +3,7 @@ package com.example.android_client2.requests;
 import com.example.android_client2.ConstantsACS;
 import com.example.android_client2.model.DishesFeed;
 import com.octo.android.robospice.request.springandroid.SpringAndroidSpiceRequest;
-import org.springframework.http.HttpEntity;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpMethod;
-import org.springframework.http.MediaType;
+import org.springframework.http.*;
 
 public class DishesRequest extends SpringAndroidSpiceRequest<DishesFeed> {
 
@@ -22,6 +19,8 @@ public class DishesRequest extends SpringAndroidSpiceRequest<DishesFeed> {
 
     @Override
     public DishesFeed loadDataFromNetwork() throws Exception {
+//        ResponseEntity<DishesFeed> result = getRestTemplate().exchange(ConstantsACS.GET_DISHES_URL, HttpMethod.GET, mRequestEntity, getResultType());
+//        DishesFeed bb = result.getBody();
         return getRestTemplate().exchange(ConstantsACS.GET_DISHES_URL, HttpMethod.GET, mRequestEntity,getResultType()).getBody();
     }
 

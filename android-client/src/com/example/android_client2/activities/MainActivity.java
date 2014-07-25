@@ -15,7 +15,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.http.converter.StringHttpMessageConverter;
 import org.springframework.web.client.RestTemplate;
 
-public class MainActivity extends FragmentActivity implements CategoryFragment.ActionsListener{
+public class MainActivity extends FragmentActivity implements CategoryFragment.ActionsListener {
 
     private CategoryFragment categoryFragment;
     private DishesFragment dishesFragment;
@@ -38,17 +38,16 @@ public class MainActivity extends FragmentActivity implements CategoryFragment.A
 
     }
 
-    private void startLoadMenu(){
+    private void startLoadMenu() {
         GetAllCategories getAllCategories = new GetAllCategories();
         getAllCategories.execute();
-
 
     }
 
     @Override
     public void onCategorySelected(String selectedCategory) {
-         switchFragment();
-
+        dishesFragment.loadDishes();
+        switchFragment();
     }
 
     private void setVisibleFragment(int visibleFragmentConstant) {
@@ -59,8 +58,8 @@ public class MainActivity extends FragmentActivity implements CategoryFragment.A
 
             switch (visibleFragmentConstant) {
                 case CATEGORY_FRAGMENT:
-                    transaction.show(dishesFragment).
-                            hide(categoryFragment).
+                    transaction.show(categoryFragment).
+                            hide(dishesFragment).
                             commit();
                     break;
                 case DISHES_FRAGMENT:
@@ -76,7 +75,16 @@ public class MainActivity extends FragmentActivity implements CategoryFragment.A
         }
     }
 
-    private void switchFragment(){
-        setVisibleFragment(currentVisibleFragment);
+    private void switchFragment() {
+        switch (currentVisibleFragment) {
+            case CATEGORY_FRAGMENT:
+                setVisibleFragment(DISHES_FRAGMENT);
+                break;
+            case DISHES_FRAGMENT:
+                setVisibleFragment(CATEGORY_FRAGMENT);
+                break;
+            default:
+                Log.e("MainActivity", "Wrong visible fragment constant");
+        }
     }
 }

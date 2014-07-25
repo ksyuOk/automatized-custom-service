@@ -5,8 +5,11 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.Toast;
 import com.example.android_client2.R;
+import com.example.android_client2.adapters.DishesListAdapter;
 import com.example.android_client2.model.DishesFeed;
 import com.example.android_client2.requests.CategoryRequest;
 import com.example.android_client2.requests.DishesRequest;
@@ -28,7 +31,6 @@ public class DishesFragment extends BaseSpiceFragment {
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         mDishesRequest = new DishesRequest();
-        loadDishes();
     }
 
     private RequestListener<DishesFeed> dishesFeedRequestListener = new RequestListener<DishesFeed>() {
@@ -40,31 +42,16 @@ public class DishesFragment extends BaseSpiceFragment {
         @Override
         public void onRequestSuccess(DishesFeed dishesFeed) {
             ListView dishesList = (ListView) getActivity().findViewById(R.id.listDishes);
-
+            DishesListAdapter dishesListAdapter = new DishesListAdapter(getActivity(), R.layout.dishes_list_item, dishesFeed);
+            dishesList.setAdapter(dishesListAdapter);
+            dishesList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                @Override
+                public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                    Toast.makeText(getActivity(), "" + view.getTag(), Toast.LENGTH_LONG).show();
+                }
+            });
         }
     };
-
-//    private RequestListener<CategoriesFeed> categoriesFeedRequestListener = new RequestListener<CategoriesFeed>() {
-//        @Override
-//        public void onRequestFailure(SpiceException spiceException) {
-//            Log.d(TAG, "Error receiving categories: " + spiceException);
-//        }
-//
-//        @Override
-//        public void onRequestSuccess(final CategoriesFeed categoriesFeed) {
-//            GridView gridView = (GridView) getActivity().findViewById(R.id.grid_view);
-//            GridMenuAdapter gridAdapter = new GridMenuAdapter(getActivity(), R.layout.category_grid_layout, categoriesFeed);
-//            gridView.setAdapter(gridAdapter);
-//            gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-//                @Override
-//                public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-////                    Toast.makeText(getActivity(),""+view.getTag(), Toast.LENGTH_LONG).show();
-//                    Category selectedCategory = categoriesFeed.get(i);
-//                    actionsListener.onCategorySelected(selectedCategory.getNameCategory());
-//                }
-//            });
-//        }
-//    };
 
     public void loadDishes() {
         getSpiceManager().execute(mDishesRequest, CategoryRequest.getCacheKey(),

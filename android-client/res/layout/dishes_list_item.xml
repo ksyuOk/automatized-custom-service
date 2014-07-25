@@ -4,10 +4,10 @@
              android:orientation="horizontal"
              android:layout_gravity="center"
              android:layout_width="match_parent"
-             android:layout_height="wrap_content"
+             android:layout_height="42dp"
              android:background="@color/background">
     <ImageView android:id="@+id/imageDish"
-               android:layout_height="wrap_content"
+               android:layout_height="65dp"
                android:layout_width="wrap_content"
                android:layout_marginLeft="5dp"
                android:layout_marginTop="1dp"
@@ -51,7 +51,7 @@
               android:layout_gravity="bottom"
               android:layout_height="wrap_content"
               android:layout_width="wrap_content"
-              android:layout_marginLeft="230dp"
+              android:layout_marginLeft="295dp"
               android:textSize="12dp"
               android:ellipsize="end"
               android:text="200 гр."
@@ -66,6 +66,7 @@
                android:layout_height="wrap_content"
                android:layout_gravity="bottom"
                android:layout_marginLeft="43dp"
+               android:layout_marginTop="2dp"
                android:scaleType="fitXY"
                android:src="@drawable/sheddow"/>
 </FrameLayout>

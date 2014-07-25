@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             android:orientation="horizontal"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:layout_marginTop="5dp">
+    <ImageView android:id="@+id/arrow"
+               android:layout_height="45dp"
+               android:layout_width="match_parent"
+               android:src="@drawable/arrow"
+               android:scaleType="fitXY"
+               android:layout_marginLeft="10dp"
+               android:layout_marginRight="10dp"
+            />
+    <TextView android:id="@+id/categoryName"
+              android:layout_height="wrap_content"
+              android:layout_width="wrap_content"
+              android:layout_gravity="center"
+              android:text="Салаты"
+              android:textColor="@android:color/white"
+              android:textSize="30dp"/>
+</FrameLayout>

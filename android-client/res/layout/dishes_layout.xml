@@ -3,9 +3,55 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:orientation="vertical"
               android:layout_width="match_parent"
-              android:layout_height="match_parent">
-    <ListView android:id="@+id/listDishes"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent"/>
+              android:layout_height="match_parent"
+              android:background="@drawable/bg_logo">
+    <include layout="@layout/top_fragment_bar"/>
+    <LinearLayout android:id="@+id/contentLayout"
+                  android:layout_height="match_parent"
+                  android:layout_width="match_parent"
+                  android:layout_marginLeft="10dp"
+                  android:layout_marginRight="10dp"
+                  android:layout_marginBottom="10dp"
+                  android:layout_marginTop="5dp"
+                  android:background="@color/background"
+                  android:orientation="vertical">
+        <ListView android:id="@+id/listDishes"
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"/>
+        <LinearLayout android:id="@+id/orderLayout"
+                      android:layout_width="match_parent"
+                      android:layout_height="match_parent"
+                      android:layout_gravity="bottom"
+                      android:layout_marginLeft="10dp"
+                      android:layout_marginRight="10dp"
+                      android:layout_marginBottom="10dp"
+                      android:layout_marginTop="10dp"
+                      android:orientation="vertical">
+            <TextView android:id="@+id/orderText"
+                      android:layout_height="wrap_content"
+                      android:layout_width="wrap_content"
+                      android:text="ВАШ ЗАКАЗ"
+                      android:textStyle="bold"
+                      android:textColor="#0A3C55"
+                      android:textSize="18dp"
+                      android:layout_marginTop="5dp"
+                      android:layout_gravity="center"/>
+            <ImageView android:layout_width="match_parent"
+                       android:layout_height="wrap_content"
+                       android:layout_gravity="center_horizontal"
+                       android:scaleType="fitXY"
+                       android:layout_marginLeft="20dp"
+                       android:layout_marginRight="20dp"
+                       android:src="@drawable/sheddow"/>
+            <ImageButton android:id="@+id/doOrderButton"
+                         android:layout_width="match_parent"
+                         android:layout_height="40dp"
+                         android:layout_gravity="center_horizontal"
+                         android:layout_marginLeft="10dp"
+                         android:layout_marginRight="10dp"
+                         android:background="@drawable/do_order_button"/>
 
+
+        </LinearLayout>
+    </LinearLayout>
 </LinearLayout>
